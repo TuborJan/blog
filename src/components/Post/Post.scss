@@ -1,0 +1,38 @@
+.post-page {
+  &__navigation {
+    display: flex;
+    justify-content: space-between;
+
+    button {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+  }
+
+  &__description {
+    margin-top: 48px;
+
+    h1 {
+      font-size: 40px;
+    }
+
+    &-img {
+      max-width: 75%;
+      margin: 0 auto;
+      margin-top: 48px;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    p {
+      max-width: 75%;
+      margin: 0 auto;
+      margin-top: 48px;
+      font-size: 18px;
+    }
+  }
+}

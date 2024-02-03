@@ -1,0 +1,25 @@
+.blog-page {
+  &__header {
+    p {
+      margin-top: 24px;
+    }
+
+    input {
+      width: 100%;
+      margin-top: 32px;
+      padding: 12px 0 12px 46px;
+      border: 1px solid rgb(145, 158, 171, 0.33);
+      border-radius: 6px;
+    }
+  }
+
+  &__posts {
+    column-count: 2;
+    column-gap: 24px;
+
+    h1 {
+      column-span: all;
+      text-align: center;
+    }
+  }
+}
