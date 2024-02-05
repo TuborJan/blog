@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import postsSlice, { fetchPosts } from "./PostSlices";
+import postsSlice from "./PostSlices";
 import { AppDispatch, RootState } from "../types/StoreHooks";
 import { TypedUseSelectorHook, useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
