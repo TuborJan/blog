@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { IPost } from "../../types/BlogTypse";
+import { reactionType } from "../../types/ReactionTypes";
 import BlogListItem from "../BlogListItem/BlogListItem";
 import "./BlogList.scss";
 import {
@@ -14,7 +15,7 @@ const BlogList = () => {
   const dispatch = useAppDispatch();
   const { posts, status } = useAppSelector((state: any) => state.postsSlice);
 
-  const handleReaction = (postId: number, reactionType: "like" | "dislike") => {
+  const handleReaction = (postId: number, reactionType: reactionType) => {
     dispatch(reactToPost({ postId, reactionType }));
   };
 
@@ -23,16 +24,22 @@ const BlogList = () => {
   };
 
   useEffect(() => {
-    if (status === "idle") {
+    if (status === "idle" || posts.length === 1) {
       dispatch(fetchPosts());
     }
   }, [dispatch]);
 
   useEffect(() => {
     if (filter || filter === "") {
-      dispatch(fetchFilteredPosts(filter));
+      let timerId: ReturnType<typeof setTimeout>;
+
+      timerId = setTimeout(() => {
+        dispatch(fetchFilteredPosts(filter));
+      }, 500);
+
+      return () => clearTimeout(timerId);
     }
-  }, [filter]);
+  }, [filter, dispatch]);
 
   return (
     <div className="blog-page container">

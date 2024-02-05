@@ -3,8 +3,10 @@ export interface IPost {
   userId: number;
   title: string;
   body: string;
-  liked: boolean;
-  disliked: boolean;
-  likes: number;
-  dislikes: number;
+  reactions: {
+    liked: boolean;
+    disliked: boolean;
+    likes: number;
+    dislikes: number;
+  };
 }
